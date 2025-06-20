@@ -184,6 +184,15 @@ body {
     padding: 1rem;
 }
 
+.op-button.selectable {
+  border-color: #1de9b6;
+}
+
+.op-button.active {
+  background-color: #a7ffeb;
+  border-color: #1de9b6;
+}
+
 .action-buttons .game-button:nth-child(1) { grid-column: 1 / span 2; }
 .action-buttons .game-button:nth-child(2) { grid-column: 3 / span 2; }
 

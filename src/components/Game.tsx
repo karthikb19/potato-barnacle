@@ -204,7 +204,7 @@ export const Game = () => {
               <button
                 key={op}
                 onClick={() => handleOperationClick(op)}
-                className={`game-button op-button ${operation === op ? 'active' : ''}`}
+                className={`game-button op-button ${operation === op ? 'active' : ''} ${firstOperand && !operation ? 'selectable' : ''}`}
               >
                 {op}
               </button>
