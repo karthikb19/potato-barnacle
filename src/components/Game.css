@@ -5,7 +5,7 @@ body {
 
 .app-layout {
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 1fr 300px;
   gap: 2rem;
   padding: 1rem;
   align-items: start;
@@ -72,8 +72,8 @@ body {
 }
 
 .solved-log-container {
-  margin-top: 2rem;
-  padding-left: 1rem;
+  margin-top: auto;
+  padding-left: 0;
 }
 
 .solved-log-entry {
@@ -204,4 +204,10 @@ body {
     align-items: center;
     height: 100vh;
     font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .app-layout {
+    grid-template-columns: 1fr;
+  }
 } 

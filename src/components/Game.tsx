@@ -173,17 +173,6 @@ export const Game = () => {
 
   return (
     <div className="app-layout">
-      <div className="side-panel">
-        <div className="panel-header">
-          <FaHome />
-          <FaBars />
-        </div>
-        <div className="panel-score">
-          {gameState.wins}-{gameState.skips}
-        </div>
-        <div className="panel-timer">{formatTime(sessionTimer)}</div>
-      </div>
-
       <div>
         <div className="difficulty-selector">
           {(['easy', 'medium', 'hard'] as Difficulty[]).map(d => (
@@ -207,7 +196,7 @@ export const Game = () => {
               className={`number-box ${num.used ? 'used' : ''} ${firstOperand?.index === idx ? 'selected' : ''}`}
               onClick={() => !num.used && handleNumberClick(idx)}
             >
-              <DisplayNumber value={num.value} />
+              {!num.used && <DisplayNumber value={num.value} />}
             </div>
           ))}
           <div className="op-buttons">
@@ -232,11 +221,20 @@ export const Game = () => {
             </button>
           </div>
         </div>
-
+      </div>
+      <div className="side-panel">
+        <div className="panel-header">
+          <FaHome />
+          <FaBars />
+        </div>
+        <div className="panel-score">
+          {gameState.wins}-{gameState.skips}
+        </div>
+        <div className="panel-timer">{formatTime(sessionTimer)}</div>
         <div className="solved-log-container">
           {solvedLog.map(entry => (
             <div key={entry.id} className="solved-log-entry">
-              Solved [{entry.numbers.join(',')}] in {entry.time} seconds.
+              Solved [{entry.numbers.join(',')}] in {entry.time}s
             </div>
           ))}
         </div>
